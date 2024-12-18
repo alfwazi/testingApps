@@ -1,0 +1,108 @@
+app_version: 1.0.0
+name: SOAR Email
+description: Security-focused email processing with Microsoft Office support
+contact_info:
+  name: geidea Threat Intelligence Team
+  url: https://geidea.net
+  email: cti@geidea.net
+
+authentication:
+  required: true
+  parameters:
+    - name: api_url
+      description: Email API endpoint URL
+      example: "https://api.example.com"
+      required: true
+      schema:
+        type: string
+    - name: username
+      description: API username
+      required: true
+      schema:c
+        type: string
+    - name: password
+      description: API password
+      required: true
+      schema:
+        type: string
+
+actions:
+  - name: authenticate
+    description: Authenticate with the email API
+    parameters:
+      - name: api_url
+        description: API base URL
+        required: true
+        schema:
+          type: string
+      - name: username
+        description: API username
+        required: true
+        schema:
+          type: string
+      - name: password
+        description: API password
+        required: true
+        schema:
+          type: string
+    returns:
+      schema:
+        type: string
+
+  - name: get_email_content
+    description: Get email content with attachments
+    parameters:
+      - name: email_id
+        description: Email ID to retrieve
+        required: true
+        schema:
+          type: string
+    returns:
+      schema:
+        type: string
+
+  - name: extract_iocs
+    description: Extract IOCs from email and attachments
+    parameters:
+      - name: email_id
+        description: Email ID to process
+        required: true
+        schema:
+          type: string
+      - name: include_attachments
+        description: Process attachments for IOCs
+        required: false
+        default: "true"
+        schema:
+          type: string
+      - name: confidence_level
+        description: Minimum confidence level
+        required: false
+        default: "medium"
+        schema:
+          type: string
+    returns:
+      schema:
+        type: string
+
+  - name: search_emails
+    description: Search emails with criteria
+    parameters:
+      - name: start_date
+        description: Start date (YYYY-MM-DD)
+        required: true
+        schema:
+          type: string
+      - name: end_date
+        description: End date (YYYY-MM-DD)
+        required: true
+        schema:
+          type: string
+      - name: query
+        description: Search query
+        required: true
+        schema:
+          type: string
+    returns:
+      schema:
+        type: string 
