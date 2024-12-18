@@ -1,10 +1,10 @@
 app_version: 1.0.0
-name: SOAR Email
+name: SOAR Email v1
 description: Security-focused email processing with Microsoft Office support
 contact_info:
-  name: geidea Threat Intelligence Team
-  url: https://geidea.net
-  email: cti@geidea.net
+  name: Priv8 Threat Intelligence 
+  url: https://Priv8
+  email: cti@Priv8.net
 
 authentication:
   required: true
